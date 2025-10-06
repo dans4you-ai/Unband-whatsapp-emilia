@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APK UNBAND BY EMILIA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: #fff;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 15px;
+            border: 3px solid #e94560;
+        }
+        
+        h1 {
+            font-size: 28px;
+            margin-bottom: 10px;
+            color: #e94560;
+            text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+        }
+        
+        .subtitle {
+            font-size: 16px;
+            color: #a9a9a9;
+            margin-bottom: 30px;
+        }
+        
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .unband-button {
+            background: linear-gradient(to right, #0f3460, #1a1a2e);
+            border: none;
+            border-radius: 10px;
+            padding: 15px;
+            color: white;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .unband-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(to right, #e94560, #0f3460);
+        }
+        
+        .unband-button:active {
+            transform: translateY(1px);
+        }
+        
+        .floating-text {
+            display: none;
+            background: rgba(15, 52, 96, 0.9);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 15px;
+            position: relative;
+            animation: float 3s ease-in-out infinite;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            border-left: 4px solid #e94560;
+        }
+        
+        .floating-text.active {
+            display: block;
+        }
+        
+        .copy-btn {
+            background: #e94560;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 15px;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+        
+        .copy-btn:hover {
+            background: #c73e56;
+        }
+        
+        .tutorial-section {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .tutorial-btn {
+            background: linear-gradient(to right, #e94560, #0f3460);
+            border: none;
+            border-radius: 10px;
+            padding: 12px 25px;
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tutorial-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(233, 69, 96, 0.5);
+        }
+        
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #a9a9a9;
+            font-size: 14px;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-5px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 24px;
+            }
+            
+            .unband-button {
+                font-size: 16px;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <img src="https://files.catbox.moe/figyvq.jpg" alt="Logo Unband" class="logo">
+            <h1>APK UNBAND BY EMILIA</h1>
+            <p class="subtitle">Solusi untuk membuka blokir akun WhatsApp Anda</p>
+        </div>
+        
+        <div class="button-container">
+            <div class="button-item">
+                <button class="unband-button" onclick="toggleText('text1')">𝗨𝗡𝗕𝗔𝗡𝗗 𝗣𝗘𝗥𝗠𝗔 𝗙𝗥𝗘𝗦𝗦</button>
+                <div id="text1" class="floating-text">
+                    <p><strong>𝗧𝗘𝗞𝗦𝗡𝗬𝗔</strong></p>
+                    <p>Hello WhatsApp support team, I have been using WhatsApp since 2009. I would like to inform you that my account has been blocked since 2011 and I would like to appeal the blocking of my account. This is my number [62xxxx], my account was blocked suddenly while I was chatting with my family and friends, and I need an explanation as to why my account was blocked suddenly? I have [https://faq.whatsapp.com/361005896189245/?helpref=uf_share] used WhatsApp responsibly but why is my account blocked? Please consider my account and reopen it because I really need my WhatsApp account to contact my family, I hope my WhatsApp account can be opened and I can use WhatsApp again, I have been satisfied with the appeal but it has always been rejected, I hope this time I will get a satisfactory response from the WhatsApp support team, thank yyo</p>
+                    <button class="copy-btn" onclick="copyToClipboard('text1')">Salin Teks</button>
+                </div>
+            </div>
+            
+            <div class="button-item">
+                <button class="unband-button" onclick="toggleText('text2')">𝗨𝗡𝗕𝗔𝗡𝗗 𝗣𝗘𝗥𝗠𝗔 𝗛𝗔𝗥𝗗</button>
+                <div id="text2" class="floating-text">
+                    <p><strong>𝗧𝗘𝗞𝗦𝗡𝗬𝗔</strong></p>
+                    <p>Hola, estimado equipo de soporte de WhatsApp,
+                    Quisiera presentar una queja por el bloqueo de mi cuenta de WhatsApp. Mi cuenta ha estado bloqueada por más de una semana. No entiendo por qué fue bloqueada inmediatamente cuando intenté registrarme. Esta es la primera vez que uso WhatsApp y no comprendo lo que ha sucedido.
+                    Espero que, al contactar al equipo de soporte, a Mark Zuckerberg o al CEO de WhatsApp, puedan revisar mi caso. Si el equipo considera que hubo alguna infracción, prometo y juro que no volveré a cometer ningún acto ilegal. Pido disculpas por cualquier error que haya cometido y me comprometo a no violar los términos de servicio:
+                    https://www.whatsapp.com/legal/terms-of-service?lang=id_ID
+                    Ruego que mi cuenta sea desbloqueada. Me comprometo a usar WhatsApp de manera responsable:
+                    https://faq.whatsapp.com/361005896189245?locale=id_ID
+                    Este es el número de mi cuenta bloqueada: ( https://wa.me/+6285750353544 )
+                    Espero una respuesta del equipo de soporte o la recuperación de mi cuenta dentro de un día.
+                    Gracias por su atención y comprensión.</p>
+                    <button class="copy-btn" onclick="copyToClipboard('text2')">Salin Teks</button>
+                </div>
+            </div>
+            
+            <div class="button-item">
+                <button class="unband-button" onclick="toggleText('text3')">𝗨𝗡𝗕𝗔𝗡𝗗 𝗣𝗘𝗥𝗠𝗔 𝗕𝗔𝗧𝗨</button>
+                <div id="text3" class="floating-text">
+                    <p><strong>𝗧𝗘𝗞𝗦𝗡𝗬𝗔</strong></p>
+                    <p>Prezado(a) Whatsapp,
+                    Gostaria de apresentar um pedido de recurso em relação ao bloqueio permanente do meu número. Anteriormente, meu número havia sido bloqueado por spam e eu não conseguia utilizar o WhatsApp. Após enviar um pedido de recurso, de repente, ao verificar, constatei que meu número havia mudado para bloqueado permanentemente.
+                    Peço encarecidamente à equipe do WhatsApp que desbloqueie minha conta o mais rápido possível, pois nela existem dados importantes da empresa. Solicito que minha conta seja reativada com urgência.
+                    Segue o número da minha conta do WhatsApp: [+62xxx]
+
+                    Atenciosamente,
+                    [Raffi Ahmad]</p>
+                    <button class="copy-btn" onclick="copyToClipboard('text3')">Salin Teks</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tutorial-section">
+            <p>Lihat tutorial penggunaan di bawah ini:</p>
+            <button class="tutorial-btn" onclick="window.open('https://files.catbox.moe/md1i3f.mp4', '_blank')">
+                <span>Tonton Tutorial</span>
+            </button>
+        </div>
+        
+        <div class="footer">
+            <p>© EmiliaByte 2025, All Right Reserved</p>
+            <p style="margin-top: 10px; font-size: 12px;">NOTE: Ganti [62xxxx] dengan nomor Anda</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleText(textId) {
+            // Sembunyikan semua teks yang sedang terbuka
+            const allTexts = document.querySelectorAll('.floating-text');
+            allTexts.forEach(text => {
+                if (text.id !== textId) {
+                    text.classList.remove('active');
+                }
+            });
+            
+            // Toggle teks yang dipilih
+            const textElement = document.getElementById(textId);
+            textElement.classList.toggle('active');
+        }
+        
+        function copyToClipboard(textId) {
+            const textElement = document.getElementById(textId);
+            const textToCopy = textElement.innerText.replace('Salin Teks', '').trim();
+            
+            // Membuat textarea sementara untuk menyalin teks
+            const textArea = document.createElement('textarea');
+            textArea.value = textToCopy;
+            document.body.appendChild(textArea);
+            textArea.select();
+            document.execCommand('copy');
+            document.body.removeChild(textArea);
+            
+            // Ubah teks tombol sementara
+            const copyButton = textElement.querySelector('.copy-btn');
+            const originalText = copyButton.innerText;
+            copyButton.innerText = 'Teks Disalin!';
+            
+            setTimeout(() => {
+                copyButton.innerText = originalText;
+            }, 2000);
+        }
+        
+        // Tutup teks mengambang jika klik di luar
+        document.addEventListener('click', function(event) {
+            if (!event.target.matches('.unband-button') && !event.target.matches('.copy-btn')) {
+                const allTexts = document.querySelectorAll('.floating-text');
+                allTexts.forEach(text => {
+                    text.classList.remove('active');
+                });
+            }
+        });
+    </script>
+</body>
+</html>
