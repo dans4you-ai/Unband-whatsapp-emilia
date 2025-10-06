@@ -212,22 +212,28 @@
             display: block;
         }
         
-        .text-header {
-            font-size: 18px;
-            margin-bottom: 15px;
-            color: #e94560;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .text-content {
-            line-height: 1.6;
-            margin-bottom: 15px;
+        .quote-container {
+            position: relative;
+            padding: 20px;
             background: rgba(255, 255, 255, 0.05);
-            padding: 15px;
             border-radius: 10px;
             border-left: 3px solid #00bcd4;
+        }
+        
+        .quote-icon {
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 24px;
+            color: #e94560;
+            opacity: 0.7;
+        }
+        
+        .quote-text {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            padding-left: 30px;
+            font-style: italic;
         }
         
         .copy-btn {
@@ -414,12 +420,11 @@
                     <i class="fas fa-chevron-down button-icon"></i>
                 </button>
                 <div id="text1" class="floating-text">
-                    <div class="text-header">
-                        <i class="fas fa-file-alt"></i>
-                        <span>𝗧𝗘𝗞𝗦𝗡𝗬𝗔</span>
-                    </div>
-                    <div class="text-content">
-                        <p>Hello WhatsApp support team, I have been using WhatsApp since 2009. I would like to inform you that my account has been blocked since 2011 and I would like to appeal the blocking of my account. This is my number [62xxxx], my account was blocked suddenly while I was chatting with my family and friends, and I need an explanation as to why my account was blocked suddenly? I have [https://faq.whatsapp.com/361005896189245/?helpref=uf_share] used WhatsApp responsibly but why is my account blocked? Please consider my account and reopen it because I really need my WhatsApp account to contact my family, I hope my WhatsApp account can be opened and I can use WhatsApp again, I have been satisfied with the appeal but it has always been rejected, I hope this time I will get a satisfactory response from the WhatsApp support team, thank yyo</p>
+                    <div class="quote-container">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <div class="quote-text">
+                            <p>Hello WhatsApp support team, I have been using WhatsApp since 2009. I would like to inform you that my account has been blocked since 2011 and I would like to appeal the blocking of my account. This is my number [62xxxx], my account was blocked suddenly while I was chatting with my family and friends, and I need an explanation as to why my account was blocked suddenly? I have [https://faq.whatsapp.com/361005896189245/?helpref=uf_share] used WhatsApp responsibly but why is my account blocked? Please consider my account and reopen it because I really need my WhatsApp account to contact my family, I hope my WhatsApp account can be opened and I can use WhatsApp again, I have been satisfied with the appeal but it has always been rejected, I hope this time I will get a satisfactory response from the WhatsApp support team, thank yyo</p>
+                        </div>
                     </div>
                     <button class="copy-btn" onclick="copyToClipboard('text1')">
                         <i class="fas fa-copy"></i>
@@ -434,20 +439,19 @@
                     <i class="fas fa-chevron-down button-icon"></i>
                 </button>
                 <div id="text2" class="floating-text">
-                    <div class="text-header">
-                        <i class="fas fa-file-alt"></i>
-                        <span>𝗧𝗘𝗞𝗦𝗡𝗬𝗔</span>
-                    </div>
-                    <div class="text-content">
-                        <p>Hola, estimado equipo de soporte de WhatsApp,
-                        Quisiera presentar una queja por el bloqueo de mi cuenta de WhatsApp. Mi cuenta ha estado bloqueada por más de una semana. No entiendo por qué fue bloqueada inmediatamente cuando intenté registrarme. Esta es la primera vez que uso WhatsApp y no comprendo lo que ha sucedido.
-                        Espero que, al contactar al equipo de soporte, a Mark Zuckerberg o al CEO de WhatsApp, puedan revisar mi caso. Si el equipo considera que hubo alguna infracción, prometo y juro que no volveré a cometer ningún acto ilegal. Pido disculpas por cualquier error que haya cometido y me comprometo a no violar los términos de servicio:
-                        https://www.whatsapp.com/legal/terms-of-service?lang=id_ID
-                        Ruego que mi cuenta sea desbloqueada. Me comprometo a usar WhatsApp de manera responsable:
-                        https://faq.whatsapp.com/361005896189245?locale=id_ID
-                        Este es el número de mi cuenta bloqueada: ( https://wa.me/+6285750353544 )
-                        Espero una respuesta del equipo de soporte o la recuperación de mi cuenta dentro de un día.
-                        Gracias por su atención y comprensión.</p>
+                    <div class="quote-container">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <div class="quote-text">
+                            <p>Hola, estimado equipo de soporte de WhatsApp,
+                            Quisiera presentar una queja por el bloqueo de mi cuenta de WhatsApp. Mi cuenta ha estado bloqueada por más de una semana. No entiendo por qué fue bloqueada inmediatamente cuando intenté registrarme. Esta es la primera vez que uso WhatsApp y no comprendo lo que ha sucedido.
+                            Espero que, al contactar al equipo de soporte, a Mark Zuckerberg o al CEO de WhatsApp, puedan revisar mi caso. Si el equipo considera que hubo alguna infracción, prometo y juro que no volveré a cometer ningún acto ilegal. Pido disculpas por cualquier error que haya cometido y me comprometo a no violar los términos de servicio:
+                            https://www.whatsapp.com/legal/terms-of-service?lang=id_ID
+                            Ruego que mi cuenta sea desbloqueada. Me comprometo a usar WhatsApp de manera responsable:
+                            https://faq.whatsapp.com/361005896189245?locale=id_ID
+                            Este es el número de mi cuenta bloqueada: ( https://wa.me/+6285750353544 )
+                            Espero una respuesta del equipo de soporte o la recuperación de mi cuenta dentro de un día.
+                            Gracias por su atención y comprensión.</p>
+                        </div>
                     </div>
                     <button class="copy-btn" onclick="copyToClipboard('text2')">
                         <i class="fas fa-copy"></i>
@@ -462,18 +466,17 @@
                     <i class="fas fa-chevron-down button-icon"></i>
                 </button>
                 <div id="text3" class="floating-text">
-                    <div class="text-header">
-                        <i class="fas fa-file-alt"></i>
-                        <span>𝗧𝗘𝗞𝗦𝗡𝗬𝗔</span>
-                    </div>
-                    <div class="text-content">
-                        <p>Prezado(a) Whatsapp,
-                        Gostaria de apresentar um pedido de recurso em relação ao bloqueio permanente do meu número. Anteriormente, meu número havia sido bloqueado por spam e eu não conseguia utilizar o WhatsApp. Após enviar um pedido de recurso, de repente, ao verificar, constatei que meu número havia mudado para bloqueado permanentemente.
-                        Peço encarecidamente à equipe do WhatsApp que desbloqueie minha conta o mais rápido possível, pois nela existem dados importantes da empresa. Solicito que minha conta seja reativada com urgência.
-                        Segue o número da minha conta do WhatsApp: [+62xxx]
+                    <div class="quote-container">
+                        <i class="fas fa-quote-left quote-icon"></i>
+                        <div class="quote-text">
+                            <p>Prezado(a) Whatsapp,
+                            Gostaria de apresentar um pedido de recurso em relação ao bloqueio permanente do meu número. Anteriormente, meu número havia sido bloqueado por spam e eu não conseguia utilizar o WhatsApp. Após enviar um pedido de recurso, de repente, ao verificar, constatei que meu número havia mudado para bloqueado permanentemente.
+                            Peço encarecidamente à equipe do WhatsApp que desbloqueie minha conta o mais rápido possível, pois nela existem dados importantes da empresa. Solicito que minha conta seja reativada com urgência.
+                            Segue o número da minha conta do WhatsApp: [+62xxx]
 
-                        Atenciosamente,
-                        [Raffi Ahmad]</p>
+                            Atenciosamente,
+                            [Raffi Ahmad]</p>
+                        </div>
                     </div>
                     <button class="copy-btn" onclick="copyToClipboard('text3')">
                         <i class="fas fa-copy"></i>
@@ -516,7 +519,7 @@
         // Fungsi untuk menyalin teks
         function copyToClipboard(textId) {
             const textElement = document.getElementById(textId);
-            const textToCopy = textElement.querySelector('.text-content').innerText;
+            const textToCopy = textElement.querySelector('.quote-text').innerText;
             
             // Membuat textarea sementara untuk menyalin teks
             const textArea = document.createElement('textarea');
