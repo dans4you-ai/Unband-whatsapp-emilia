@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>APK UNBAND BY EMILIA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
             margin: 0;
@@ -13,144 +14,292 @@
         }
         
         body {
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            background: linear-gradient(135deg, #0c0c2e 0%, #1a1a4a 50%, #0c0c2e 100%);
             color: #fff;
             min-height: 100vh;
-            padding: 20px;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        /* Efek Nebula */
+        .nebula {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .nebula-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0.6;
+        }
+        
+        .nebula-1 {
+            background: radial-gradient(circle at 20% 30%, rgba(106, 27, 154, 0.4) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 70%, rgba(33, 150, 243, 0.3) 0%, transparent 50%);
+            animation: float 25s infinite linear;
+        }
+        
+        .nebula-2 {
+            background: radial-gradient(circle at 60% 20%, rgba(233, 30, 99, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 30% 80%, rgba(0, 188, 212, 0.3) 0%, transparent 50%);
+            animation: float 30s infinite linear reverse;
+        }
+        
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+                radial-gradient(2px 2px at 40px 70px, #fff, transparent),
+                radial-gradient(1px 1px at 90px 40px, #ddd, transparent),
+                radial-gradient(1px 1px at 130px 80px, #fff, transparent),
+                radial-gradient(2px 2px at 160px 30px, #eee, transparent);
+            background-repeat: repeat;
+            background-size: 200px 100px;
+            animation: twinkle 5s infinite alternate;
         }
         
         .container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px;
+            position: relative;
+            z-index: 1;
         }
         
         .header {
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 40px;
+            padding: 20px;
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #e94560, #4a00e0, #00bcd4);
         }
         
         .logo {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 15px;
             border: 3px solid #e94560;
+            box-shadow: 0 0 20px rgba(233, 69, 96, 0.5);
+            transition: transform 0.5s ease;
+        }
+        
+        .logo:hover {
+            transform: scale(1.05) rotate(5deg);
         }
         
         h1 {
-            font-size: 28px;
+            font-size: 32px;
             margin-bottom: 10px;
-            color: #e94560;
-            text-shadow: 0 0 10px rgba(233, 69, 96, 0.5);
+            background: linear-gradient(90deg, #e94560, #8e24aa, #00bcd4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 10px rgba(233, 69, 96, 0.3);
         }
         
         .subtitle {
             font-size: 16px;
             color: #a9a9a9;
-            margin-bottom: 30px;
+            margin-bottom: 10px;
         }
         
         .button-container {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 25px;
             margin-bottom: 40px;
         }
         
+        .button-item {
+            position: relative;
+        }
+        
         .unband-button {
-            background: linear-gradient(to right, #0f3460, #1a1a2e);
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%);
             border: none;
-            border-radius: 10px;
-            padding: 15px;
+            border-radius: 15px;
+            padding: 18px 25px;
             color: white;
             font-size: 18px;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
             position: relative;
             overflow: hidden;
+            width: 100%;
+            text-align: left;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(5px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .unband-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .unband-button:hover::before {
+            left: 100%;
         }
         
         .unband-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-            background: linear-gradient(to right, #e94560, #0f3460);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+            background: linear-gradient(135deg, rgba(233, 69, 96, 0.2) 0%, rgba(30, 41, 59, 0.9) 100%);
         }
         
         .unband-button:active {
-            transform: translateY(1px);
+            transform: translateY(2px);
+        }
+        
+        .button-icon {
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .unband-button:hover .button-icon {
+            transform: rotate(90deg);
         }
         
         .floating-text {
             display: none;
-            background: rgba(15, 52, 96, 0.9);
-            border-radius: 10px;
-            padding: 15px;
+            background: rgba(15, 23, 42, 0.95);
+            border-radius: 15px;
+            padding: 20px;
             margin-top: 15px;
             position: relative;
             animation: float 3s ease-in-out infinite;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
             border-left: 4px solid #e94560;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
         }
         
         .floating-text.active {
             display: block;
         }
         
+        .text-header {
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #e94560;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .text-content {
+            line-height: 1.6;
+            margin-bottom: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            border-left: 3px solid #00bcd4;
+        }
+        
         .copy-btn {
-            background: #e94560;
+            background: linear-gradient(135deg, #e94560, #8e24aa);
             border: none;
-            border-radius: 5px;
-            padding: 8px 15px;
+            border-radius: 8px;
+            padding: 10px 20px;
             color: white;
             font-size: 14px;
             cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
             margin-top: 10px;
-            transition: background 0.3s ease;
+            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
         }
         
         .copy-btn:hover {
-            background: #c73e56;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(233, 69, 96, 0.5);
         }
         
         .tutorial-section {
             text-align: center;
             margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
         
         .tutorial-btn {
-            background: linear-gradient(to right, #e94560, #0f3460);
+            background: linear-gradient(135deg, #e94560, #8e24aa);
             border: none;
-            border-radius: 10px;
-            padding: 12px 25px;
+            border-radius: 12px;
+            padding: 15px 30px;
             color: white;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(233, 69, 96, 0.3);
+            box-shadow: 0 8px 25px rgba(233, 69, 96, 0.4);
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
+            margin-top: 15px;
         }
         
         .tutorial-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(233, 69, 96, 0.5);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(233, 69, 96, 0.6);
         }
         
         .footer {
             text-align: center;
             margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            background: rgba(15, 23, 42, 0.7);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             color: #a9a9a9;
             font-size: 14px;
+        }
+        
+        .footer-note {
+            margin-top: 10px;
+            font-size: 12px;
+            color: #8e24aa;
         }
         
         @keyframes float {
@@ -158,30 +307,99 @@
                 transform: translateY(0px);
             }
             50% {
-                transform: translateY(-5px);
+                transform: translateY(-8px);
             }
             100% {
                 transform: translateY(0px);
             }
         }
         
-        @media (max-width: 600px) {
+        @keyframes twinkle {
+            0% {
+                opacity: 0.5;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translate(0px, 0px);
+            }
+            33% {
+                transform: translate(30px, 30px);
+            }
+            66% {
+                transform: translate(-20px, 10px);
+            }
+            100% {
+                transform: translate(0px, 0px);
+            }
+        }
+        
+        @media (max-width: 768px) {
             .container {
-                padding: 10px;
+                padding: 15px;
             }
             
             h1 {
-                font-size: 24px;
+                font-size: 26px;
             }
             
             .unband-button {
                 font-size: 16px;
-                padding: 12px;
+                padding: 15px;
+            }
+            
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+        }
+        
+        /* Efek partikel */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.5;
+            animation: particle-float 15s infinite linear;
+        }
+        
+        @keyframes particle-float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+            }
+            100% {
+                transform: translateY(-100px) translateX(20px);
             }
         }
     </style>
 </head>
 <body>
+    <!-- Efek Nebula -->
+    <div class="nebula">
+        <div class="nebula-layer nebula-1"></div>
+        <div class="nebula-layer nebula-2"></div>
+        <div class="stars"></div>
+    </div>
+    
+    <!-- Efek Partikel -->
+    <div class="particles" id="particles"></div>
+    
     <div class="container">
         <div class="header">
             <img src="https://files.catbox.moe/figyvq.jpg" alt="Logo Unband" class="logo">
@@ -191,43 +409,76 @@
         
         <div class="button-container">
             <div class="button-item">
-                <button class="unband-button" onclick="toggleText('text1')">𝗨𝗡𝗕𝗔𝗡𝗗 𝗣𝗘𝗥𝗠𝗔 𝗙𝗥𝗘𝗦𝗦</button>
+                <button class="unband-button" onclick="toggleText('text1')">
+                    <span>𝗨𝗡𝗕𝗔𝗡𝗗 𝗣𝗘𝗥𝗠𝗔 𝗙𝗥𝗘𝗦𝗦</span>
+                    <i class="fas fa-chevron-down button-icon"></i>
+                </button>
                 <div id="text1" class="floating-text">
-                    <p><strong>𝗧𝗘𝗞𝗦𝗡𝗬𝗔</strong></p>
-                    <p>Hello WhatsApp support team, I have been using WhatsApp since 2009. I would like to inform you that my account has been blocked since 2011 and I would like to appeal the blocking of my account. This is my number [62xxxx], my account was blocked suddenly while I was chatting with my family and friends, and I need an explanation as to why my account was blocked suddenly? I have [https://faq.whatsapp.com/361005896189245/?helpref=uf_share] used WhatsApp responsibly but why is my account blocked? Please consider my account and reopen it because I really need my WhatsApp account to contact my family, I hope my WhatsApp account can be opened and I can use WhatsApp again, I have been satisfied with the appeal but it has always been rejected, I hope this time I will get a satisfactory response from the WhatsApp support team, thank yyo</p>
-                    <button class="copy-btn" onclick="copyToClipboard('text1')">Salin Teks</button>
+                    <div class="text-header">
+                        <i class="fas fa-file-alt"></i>
+                        <span>𝗧𝗘𝗞𝗦𝗡𝗬𝗔</span>
+                    </div>
+                    <div class="text-content">
+                        <p>Hello WhatsApp support team, I have been using WhatsApp since 2009. I would like to inform you that my account has been blocked since 2011 and I would like to appeal the blocking of my account. This is my number [62xxxx], my account was blocked suddenly while I was chatting with my family and friends, and I need an explanation as to why my account was blocked suddenly? I have [https://faq.whatsapp.com/361005896189245/?helpref=uf_share] used WhatsApp responsibly but why is my account blocked? Please consider my account and reopen it because I really need my WhatsApp account to contact my family, I hope my WhatsApp account can be opened and I can use WhatsApp again, I have been satisfied with the appeal but it has always been rejected, I hope this time I will get a satisfactory response from the WhatsApp support team, thank yyo</p>
+                    </div>
+                    <button class="copy-btn" onclick="copyToClipboard('text1')">
+                        <i class="fas fa-copy"></i>
+                        <span>Salin Teks</span>
+                    </button>
                 </div>
             </div>
             
             <div class="button-item">
-                <button class="unband-button" onclick="toggleText('text2')">𝗨𝗡𝗕𝗔𝗡𝗗 𝗣𝗘𝗥𝗠𝗔 𝗛𝗔𝗥𝗗</button>
+                <button class="unband-button" onclick="toggleText('text2')">
+                    <span>𝗨𝗡𝗕𝗔𝗡𝗗 𝗣𝗘𝗥𝗠𝗔 𝗛𝗔𝗥𝗗</span>
+                    <i class="fas fa-chevron-down button-icon"></i>
+                </button>
                 <div id="text2" class="floating-text">
-                    <p><strong>𝗧𝗘𝗞𝗦𝗡𝗬𝗔</strong></p>
-                    <p>Hola, estimado equipo de soporte de WhatsApp,
-                    Quisiera presentar una queja por el bloqueo de mi cuenta de WhatsApp. Mi cuenta ha estado bloqueada por más de una semana. No entiendo por qué fue bloqueada inmediatamente cuando intenté registrarme. Esta es la primera vez que uso WhatsApp y no comprendo lo que ha sucedido.
-                    Espero que, al contactar al equipo de soporte, a Mark Zuckerberg o al CEO de WhatsApp, puedan revisar mi caso. Si el equipo considera que hubo alguna infracción, prometo y juro que no volveré a cometer ningún acto ilegal. Pido disculpas por cualquier error que haya cometido y me comprometo a no violar los términos de servicio:
-                    https://www.whatsapp.com/legal/terms-of-service?lang=id_ID
-                    Ruego que mi cuenta sea desbloqueada. Me comprometo a usar WhatsApp de manera responsable:
-                    https://faq.whatsapp.com/361005896189245?locale=id_ID
-                    Este es el número de mi cuenta bloqueada: ( https://wa.me/+6285750353544 )
-                    Espero una respuesta del equipo de soporte o la recuperación de mi cuenta dentro de un día.
-                    Gracias por su atención y comprensión.</p>
-                    <button class="copy-btn" onclick="copyToClipboard('text2')">Salin Teks</button>
+                    <div class="text-header">
+                        <i class="fas fa-file-alt"></i>
+                        <span>𝗧𝗘𝗞𝗦𝗡𝗬𝗔</span>
+                    </div>
+                    <div class="text-content">
+                        <p>Hola, estimado equipo de soporte de WhatsApp,
+                        Quisiera presentar una queja por el bloqueo de mi cuenta de WhatsApp. Mi cuenta ha estado bloqueada por más de una semana. No entiendo por qué fue bloqueada inmediatamente cuando intenté registrarme. Esta es la primera vez que uso WhatsApp y no comprendo lo que ha sucedido.
+                        Espero que, al contactar al equipo de soporte, a Mark Zuckerberg o al CEO de WhatsApp, puedan revisar mi caso. Si el equipo considera que hubo alguna infracción, prometo y juro que no volveré a cometer ningún acto ilegal. Pido disculpas por cualquier error que haya cometido y me comprometo a no violar los términos de servicio:
+                        https://www.whatsapp.com/legal/terms-of-service?lang=id_ID
+                        Ruego que mi cuenta sea desbloqueada. Me comprometo a usar WhatsApp de manera responsable:
+                        https://faq.whatsapp.com/361005896189245?locale=id_ID
+                        Este es el número de mi cuenta bloqueada: ( https://wa.me/+6285750353544 )
+                        Espero una respuesta del equipo de soporte o la recuperación de mi cuenta dentro de un día.
+                        Gracias por su atención y comprensión.</p>
+                    </div>
+                    <button class="copy-btn" onclick="copyToClipboard('text2')">
+                        <i class="fas fa-copy"></i>
+                        <span>Salin Teks</span>
+                    </button>
                 </div>
             </div>
             
             <div class="button-item">
-                <button class="unband-button" onclick="toggleText('text3')">𝗨𝗡𝗕𝗔𝗡𝗗 𝗣𝗘𝗥𝗠𝗔 𝗕𝗔𝗧𝗨</button>
+                <button class="unband-button" onclick="toggleText('text3')">
+                    <span>𝗨𝗡𝗕𝗔𝗡𝗗 𝗣𝗘𝗥𝗠𝗔 𝗕𝗔𝗧𝗨</span>
+                    <i class="fas fa-chevron-down button-icon"></i>
+                </button>
                 <div id="text3" class="floating-text">
-                    <p><strong>𝗧𝗘𝗞𝗦𝗡𝗬𝗔</strong></p>
-                    <p>Prezado(a) Whatsapp,
-                    Gostaria de apresentar um pedido de recurso em relação ao bloqueio permanente do meu número. Anteriormente, meu número havia sido bloqueado por spam e eu não conseguia utilizar o WhatsApp. Após enviar um pedido de recurso, de repente, ao verificar, constatei que meu número havia mudado para bloqueado permanentemente.
-                    Peço encarecidamente à equipe do WhatsApp que desbloqueie minha conta o mais rápido possível, pois nela existem dados importantes da empresa. Solicito que minha conta seja reativada com urgência.
-                    Segue o número da minha conta do WhatsApp: [+62xxx]
+                    <div class="text-header">
+                        <i class="fas fa-file-alt"></i>
+                        <span>𝗧𝗘𝗞𝗦𝗡𝗬𝗔</span>
+                    </div>
+                    <div class="text-content">
+                        <p>Prezado(a) Whatsapp,
+                        Gostaria de apresentar um pedido de recurso em relação ao bloqueio permanente do meu número. Anteriormente, meu número havia sido bloqueado por spam e eu não conseguia utilizar o WhatsApp. Após enviar um pedido de recurso, de repente, ao verificar, constatei que meu número havia mudado para bloqueado permanentemente.
+                        Peço encarecidamente à equipe do WhatsApp que desbloqueie minha conta o mais rápido possível, pois nela existem dados importantes da empresa. Solicito que minha conta seja reativada com urgência.
+                        Segue o número da minha conta do WhatsApp: [+62xxx]
 
-                    Atenciosamente,
-                    [Raffi Ahmad]</p>
-                    <button class="copy-btn" onclick="copyToClipboard('text3')">Salin Teks</button>
+                        Atenciosamente,
+                        [Raffi Ahmad]</p>
+                    </div>
+                    <button class="copy-btn" onclick="copyToClipboard('text3')">
+                        <i class="fas fa-copy"></i>
+                        <span>Salin Teks</span>
+                    </button>
                 </div>
             </div>
         </div>
@@ -235,17 +486,19 @@
         <div class="tutorial-section">
             <p>Lihat tutorial penggunaan di bawah ini:</p>
             <button class="tutorial-btn" onclick="window.open('https://files.catbox.moe/md1i3f.mp4', '_blank')">
+                <i class="fas fa-play-circle"></i>
                 <span>Tonton Tutorial</span>
             </button>
         </div>
         
         <div class="footer">
             <p>© EmiliaByte 2025, All Right Reserved</p>
-            <p style="margin-top: 10px; font-size: 12px;">NOTE: Ganti [62xxxx] dengan nomor Anda</p>
+            <p class="footer-note">NOTE: Ganti [62xxxx] dengan nomor Anda</p>
         </div>
     </div>
 
     <script>
+        // Fungsi untuk toggle teks
         function toggleText(textId) {
             // Sembunyikan semua teks yang sedang terbuka
             const allTexts = document.querySelectorAll('.floating-text');
@@ -260,9 +513,10 @@
             textElement.classList.toggle('active');
         }
         
+        // Fungsi untuk menyalin teks
         function copyToClipboard(textId) {
             const textElement = document.getElementById(textId);
-            const textToCopy = textElement.innerText.replace('Salin Teks', '').trim();
+            const textToCopy = textElement.querySelector('.text-content').innerText;
             
             // Membuat textarea sementara untuk menyalin teks
             const textArea = document.createElement('textarea');
@@ -274,23 +528,59 @@
             
             // Ubah teks tombol sementara
             const copyButton = textElement.querySelector('.copy-btn');
-            const originalText = copyButton.innerText;
-            copyButton.innerText = 'Teks Disalin!';
+            const originalText = copyButton.querySelector('span').innerText;
+            copyButton.querySelector('span').innerText = 'Teks Disalin!';
+            copyButton.style.background = 'linear-gradient(135deg, #00bcd4, #4a00e0)';
             
             setTimeout(() => {
-                copyButton.innerText = originalText;
+                copyButton.querySelector('span').innerText = originalText;
+                copyButton.style.background = 'linear-gradient(135deg, #e94560, #8e24aa)';
             }, 2000);
         }
         
         // Tutup teks mengambang jika klik di luar
         document.addEventListener('click', function(event) {
-            if (!event.target.matches('.unband-button') && !event.target.matches('.copy-btn')) {
+            if (!event.target.matches('.unband-button') && 
+                !event.target.closest('.unband-button') && 
+                !event.target.matches('.copy-btn') && 
+                !event.target.closest('.copy-btn')) {
                 const allTexts = document.querySelectorAll('.floating-text');
                 allTexts.forEach(text => {
                     text.classList.remove('active');
                 });
             }
         });
+        
+        // Membuat efek partikel
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Posisi acak
+                const left = Math.random() * 100;
+                const size = Math.random() * 3 + 1;
+                const opacity = Math.random() * 0.5 + 0.2;
+                const animationDuration = Math.random() * 20 + 10;
+                
+                particle.style.left = `${left}%`;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                particle.style.opacity = opacity;
+                particle.style.animationDuration = `${animationDuration}s`;
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                particlesContainer.appendChild(particle);
+            }
+        }
+        
+        // Jalankan fungsi saat halaman dimuat
+        window.onload = function() {
+            createParticles();
+        };
     </script>
 </body>
 </html>
