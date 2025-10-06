@@ -204,7 +204,6 @@
             border-left: 4px solid #e94560;
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.1);
-            /* Animasi dihapus */
             animation: none;
             transform: none;
         }
@@ -309,6 +308,50 @@
             color: #8e24aa;
         }
         
+        /* Toast Notification */
+        .toast-container {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+        
+        .toast {
+            background: linear-gradient(135deg, #e94560, #8e24aa);
+            color: white;
+            padding: 15px 25px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transform: translateX(400px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .toast.show {
+            transform: translateX(0);
+            opacity: 1;
+        }
+        
+        .toast.hide {
+            transform: translateX(400px);
+            opacity: 0;
+        }
+        
+        .toast-icon {
+            font-size: 20px;
+        }
+        
+        .toast-message {
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
         @keyframes nebula-float {
             0% {
                 transform: translate(0px, 0px);
@@ -350,6 +393,16 @@
             .logo {
                 width: 100px;
                 height: 100px;
+            }
+            
+            .toast-container {
+                top: 10px;
+                right: 10px;
+                left: 10px;
+            }
+            
+            .toast {
+                padding: 12px 20px;
             }
         }
         
@@ -395,6 +448,9 @@
     <!-- Efek Partikel -->
     <div class="particles" id="particles"></div>
     
+    <!-- Toast Notification Container -->
+    <div class="toast-container" id="toastContainer"></div>
+    
     <div class="container">
         <div class="header">
             <img src="https://files.catbox.moe/figyvq.jpg" alt="Logo Unband" class="logo">
@@ -415,7 +471,7 @@
                             <p>Hello WhatsApp support team, I have been using WhatsApp since 2009. I would like to inform you that my account has been blocked since 2011 and I would like to appeal the blocking of my account. This is my number [62xxxx], my account was blocked suddenly while I was chatting with my family and friends, and I need an explanation as to why my account was blocked suddenly? I have [https://faq.whatsapp.com/361005896189245/?helpref=uf_share] used WhatsApp responsibly but why is my account blocked? Please consider my account and reopen it because I really need my WhatsApp account to contact my family, I hope my WhatsApp account can be opened and I can use WhatsApp again, I have been satisfied with the appeal but it has always been rejected, I hope this time I will get a satisfactory response from the WhatsApp support team, thank yyo</p>
                         </div>
                     </div>
-                    <button class="copy-btn" onclick="copyToClipboard('text1')">
+                    <button class="copy-btn" onclick="copyToClipboard('text1', 'UNBAND PERMA FRESS')">
                         <i class="fas fa-copy"></i>
                         <span>Salin Teks</span>
                     </button>
@@ -435,14 +491,14 @@
                             Quisiera presentar una queja por el bloqueo de mi cuenta de WhatsApp. Mi cuenta ha estado bloqueada por más de una semana. No entiendo por qué fue bloqueada inmediatamente cuando intenté registrarme. Esta es la primera vez que uso WhatsApp y no comprendo lo que ha sucedido.
                             Espero que, al contactar al equipo de soporte, a Mark Zuckerberg o al CEO de WhatsApp, puedan revisar mi caso. Si el equipo considera que hubo alguna infracción, prometo y juro que no volveré a cometer ningún acto ilegal. Pido disculpas por cualquier error que haya cometido y me comprometo a no violar los términos de servicio:
                             https://www.whatsapp.com/legal/terms-of-service?lang=id_ID
-                            Ruego que mi cuenta sea desbloqueada. Me comprometo a usar WhatsApp de manera responsable:
+                            Ruego que mi cuenta seja desbloqueada. Me comprometo a usar WhatsApp de manera responsable:
                             https://faq.whatsapp.com/361005896189245?locale=id_ID
                             Este es el número de mi cuenta bloqueada: ( https://wa.me/+6285750353544 )
                             Espero una respuesta del equipo de soporte o la recuperación de mi cuenta dentro de un día.
                             Gracias por su atención y comprensión.</p>
                         </div>
                     </div>
-                    <button class="copy-btn" onclick="copyToClipboard('text2')">
+                    <button class="copy-btn" onclick="copyToClipboard('text2', 'UNBAND PERMA HARD')">
                         <i class="fas fa-copy"></i>
                         <span>Salin Teks</span>
                     </button>
@@ -467,7 +523,7 @@
                             [Raffi Ahmad]</p>
                         </div>
                     </div>
-                    <button class="copy-btn" onclick="copyToClipboard('text3')">
+                    <button class="copy-btn" onclick="copyToClipboard('text3', 'UNBAND PERMA BATU')">
                         <i class="fas fa-copy"></i>
                         <span>Salin Teks</span>
                     </button>
@@ -505,8 +561,37 @@
             textElement.classList.toggle('active');
         }
         
+        // Fungsi untuk menampilkan toast notification
+        function showToast(message) {
+            const toastContainer = document.getElementById('toastContainer');
+            const toast = document.createElement('div');
+            toast.className = 'toast';
+            toast.innerHTML = `
+                <i class="fas fa-check-circle toast-icon"></i>
+                <span class="toast-message">${message}</span>
+            `;
+            
+            toastContainer.appendChild(toast);
+            
+            // Tampilkan toast
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 100);
+            
+            // Sembunyikan toast setelah 3 detik
+            setTimeout(() => {
+                toast.classList.remove('show');
+                toast.classList.add('hide');
+                
+                // Hapus element setelah animasi selesai
+                setTimeout(() => {
+                    toastContainer.removeChild(toast);
+                }, 300);
+            }, 3000);
+        }
+        
         // Fungsi untuk menyalin teks
-        function copyToClipboard(textId) {
+        function copyToClipboard(textId, metode) {
             const textElement = document.getElementById(textId);
             const textToCopy = textElement.querySelector('.quote-text').innerText;
             
@@ -517,6 +602,9 @@
             textArea.select();
             document.execCommand('copy');
             document.body.removeChild(textArea);
+            
+            // Tampilkan toast notification
+            showToast(`Teks ${metode} Berhasil Disalin`);
             
             // Ubah teks tombol sementara
             const copyButton = textElement.querySelector('.copy-btn');
